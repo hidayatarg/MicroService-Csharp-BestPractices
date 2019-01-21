@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevFramework.Core.Aspects.Postsharp.ValidationAspects;
 using MemberRegistration.Business.Abstruct;
 using MemberRegistration.Business.ServiceAdapters;
+using MemberRegistration.Business.ValidationRules.FluentValidation;
 using MemberRegistration.DataAccess.Abstruct;
 using MemberRegistration.Entities.Concrete;
 
@@ -21,6 +23,8 @@ namespace MemberRegistration.Business.Concrete
             _memberDal = memberDal;
             _kpsService = kpsService;
         }
+
+        [FluentValidationAspect(typeof(MemberValidator))]
         public void Add(Member member)
         {
             // Islem(Actions)
