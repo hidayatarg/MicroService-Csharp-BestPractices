@@ -41,7 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstruct\IMemberService.cs" />
+    <Compile Include="Concrete\MemberManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevFramework.Core\DevFramework.Core.csproj">
+      <Project>{93C91DD3-067E-4806-A7FF-F8F9B3E570D7}</Project>
+      <Name>DevFramework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MemberRegistration.DataAccess\MemberRegistration.DataAccess.csproj">
+      <Project>{37CD8B96-BA64-4732-9CB6-B88A2D3D9A3D}</Project>
+      <Name>MemberRegistration.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MemberRegistration.Entities\MemberRegistration.Entities.csproj">
+      <Project>{f826ee3d-2e8d-459d-a561-d30b19bdae16}</Project>
+      <Name>MemberRegistration.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
