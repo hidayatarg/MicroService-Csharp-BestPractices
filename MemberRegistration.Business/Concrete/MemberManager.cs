@@ -27,20 +27,27 @@ namespace MemberRegistration.Business.Concrete
         [FluentValidationAspect(typeof(MemberValidator))]
         public void Add(Member member)
         {
-            // Islem(Actions)
             // Check if there is a record on same TC
-            if (_memberDal.Get(m => m.TcNo == member.TcNo) != null)
-            {
-                throw new Exception("Bu Kullanici daha once Kayit olmustur.");
-            }
-
+            CheckIfMemberExists(member);
             // Check the member from kimlik dogrula 
+            CheckIfUserValidFromKps(member);
+            _memberDal.Add(member);
+        }
+
+        private void CheckIfUserValidFromKps(Member member)
+        {
             if (_kpsService.ValidateUser(member) == false)
             {
                 throw new Exception("Kullanici dogrulamasi gecerli degil");
             }
+        }
 
-           _memberDal.Add(member);
+        private void CheckIfMemberExists(Member member)
+        {
+            if (_memberDal.Get(m => m.TcNo == member.TcNo) != null)
+            {
+                throw new Exception("Bu Kullanici daha once Kayit olmustur.");
+            }
         }
     }
 }
