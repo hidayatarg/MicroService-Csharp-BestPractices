@@ -52,9 +52,9 @@
     <Compile Include="Concrete\EntityFramework\EfMemberDal.cs" />
     <Compile Include="Concrete\EntityFramework\Mappings\MemberMap.cs" />
     <Compile Include="Concrete\EntityFramework\MembershipContext.cs" />
-    <Compile Include="Migrations\201901210828229_intial.cs" />
-    <Compile Include="Migrations\201901210828229_intial.Designer.cs">
-      <DependentUpon>201901210828229_intial.cs</DependentUpon>
+    <Compile Include="Migrations\201901240735105_initial.cs" />
+    <Compile Include="Migrations\201901240735105_initial.Designer.cs">
+      <DependentUpon>201901240735105_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901210828229_intial.resx">
-      <DependentUpon>201901210828229_intial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901240735105_initial.resx">
+      <DependentUpon>201901240735105_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
