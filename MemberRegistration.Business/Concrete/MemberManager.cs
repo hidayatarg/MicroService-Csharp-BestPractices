@@ -28,6 +28,11 @@ namespace MemberRegistration.Business.Concrete
         public void Add(Member member)
         {
             // Islem(Actions)
+            // Check if there is a record on same TC
+            if (_memberDal.Get(m => m.TcNo == member.TcNo) != null)
+            {
+                throw new Exception("Bu Kullanici daha once Kayit olmustur.");
+            }
 
             // Check the member from kimlik dogrula 
             if (_kpsService.ValidateUser(member) == false)
